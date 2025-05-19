@@ -19,6 +19,7 @@ This CTE approach makes the query more readable while determining the customers 
 
 This CTE approach makes the query more readable and maintainable while providing a logical structure that calculates the average number of transactions per customer per month and classifies the customers by frequency.
 
+
 ### Assessment Question 3: The task was to find all active accounts (savings or investments) with no transactions in the last 1 year (365 days)
 **Approach**:
 - Select plan_id, owner_id, account type (using is_regular_savings and is_a_fund), last_transaction_date (using MAX on transaction_date), and inactivity_days (calculated using DATEDIFF between CURDATE() and the last transaction date).
@@ -27,6 +28,7 @@ This CTE approach makes the query more readable and maintainable while providing
 - Results are grouped by plan_id, owner_id, customer_name, and account_type to handle multiple transactions per account.
 - The HAVING clause filters for accounts with either NULL transaction dates or transactions older than 365 days.
 
+
 ### Assessment Question 4: The task was to calculate customer lifetime value (CLV) for all customers.
 **Approach**:
 - Create a Common Table Expression (CTE) named `clv_table`.
@@ -34,3 +36,6 @@ This CTE approach makes the query more readable and maintainable while providing
 - This CTE is then used to select customer_id, name, tenure_months, total_transactions, and the estimated_clv which is also calculated using the provided guidelines.
 - The amounts used are corrected to one decimal place in Naira.
 
+
+### Challenges
+The main challenge encountered in the course of this project was **Data Quality and Consistency Issues**, particularly in the customer names. This could have been mitigated by enforcing specific guidelines and name verifications on signup. 
